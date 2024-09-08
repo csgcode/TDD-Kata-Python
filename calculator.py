@@ -3,4 +3,11 @@ def Add(numbers: str) -> int:
     if not numbers:
         return 0
 
-    return int(numbers)
+    try:
+        int(numbers)
+        return int(numbers)
+    except ValueError:
+        pass
+
+    addends = map(int, numbers.split(","))
+    return sum(addends)

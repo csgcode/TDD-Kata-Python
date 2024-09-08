@@ -13,4 +13,9 @@ class TestCalculator(unittest.TestCase):
 
     def test_two_numbers(self):
         result = Add("1,2")
-        self.assertEquals(result, 1)
+        self.assertEquals(result, 3)
+    
+    def test_muiltiple_numbers(self):
+        result = Add("1,2,3")
+        self.assertEquals(result, 6)
+        
