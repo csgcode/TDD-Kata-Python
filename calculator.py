@@ -4,10 +4,9 @@ def Add(numbers: str) -> int:
         return 0
 
     try:
-        int(numbers)
-        return int(numbers)
+        if "," not in numbers:
+            return int(numbers)
+        addends = map(int, numbers.split(","))
+        return sum(addends)
     except ValueError:
-        pass
-
-    addends = map(int, numbers.split(","))
-    return sum(addends)
+        raise ValueError("Non-numerical input received")

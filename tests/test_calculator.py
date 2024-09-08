@@ -18,4 +18,15 @@ class TestCalculator(unittest.TestCase):
     def test_muiltiple_numbers(self):
         result = Add("1,2,3")
         self.assertEquals(result, 6)
+
+    def test_non_numerical_inputs(self):
+        test_inputs = ("a", "1,a,2")
+        
+        for input_value in test_inputs:
+            with self.assertRaises(ValueError) as e:
+                result = Add(input_value)
+            
+            self.assertEqual(str(e.exception), "Non-numerical input received")
+    
+    
         
