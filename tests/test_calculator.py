@@ -23,6 +23,13 @@ class TestCalculator(unittest.TestCase):
         result = Add("1\n2,3")
         self.assertEquals(result, 6)
     
+    def test_dynamic_delimiter(self):
+        result = Add("//;\n1;2;3")
+        self.assertEquals(result, 6)
+
+        result = Add("//;*\n1;*2;*3")
+        self.assertEquals(result, 6)
+    
     def test_non_numerical_inputs(self):
         test_inputs = ("a", "1,a,2")
         
