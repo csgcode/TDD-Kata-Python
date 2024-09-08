@@ -19,6 +19,10 @@ class TestCalculator(unittest.TestCase):
         result = Add("1,2,3")
         self.assertEquals(result, 6)
 
+    def test_newline_input(self):
+        result = Add("1\n2,3")
+        self.assertEquals(result, 6)
+    
     def test_non_numerical_inputs(self):
         test_inputs = ("a", "1,a,2")
         
